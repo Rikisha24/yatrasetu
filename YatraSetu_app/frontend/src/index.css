@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0f1f;
+  --color-panel: #111a33;
+  --color-panel2: #16213f;
+  --color-line: #253255;
+  --color-ink: #e9edf9;
+  --color-muted: #93a0c6;
+  --color-gold: #f2b84b;
+  --color-ok: #3ddc97;
+  --color-bad: #ff6b6b;
+  --color-amber: #ffb020;
+  --color-sky: #74a9ff;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+html, body { background: var(--color-bg); color: var(--color-ink); font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.45; }
+button { cursor: pointer; font: inherit; }
+:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+
+@layer components {
+  .card { @apply bg-panel border border-line rounded-2xl px-4 py-3.5; }
+  .card h2, .card h3, .h-label { @apply m-0 mb-2.5 text-[13px] uppercase tracking-[1.2px] text-muted font-semibold; }
+  .btn { @apply bg-panel2 text-ink border border-line px-3.5 py-2 rounded-xl hover:border-gold; }
+  .btn:disabled { @apply opacity-50 cursor-not-allowed; }
+  .btn-primary { @apply bg-gold text-[#1b1500] border-gold font-bold hover:brightness-110 hover:border-gold; }
+  .btn-good { @apply bg-ok text-[#04281a] border-ok font-bold hover:border-ok; }
+  .btn-sm { @apply px-2.5 py-1 text-[13px]; }
+  .chip { @apply text-[11.5px] px-2 py-0.5 rounded-full border border-line whitespace-nowrap; }
+  .chip-ok { @apply text-ok border-[#1f6b4d] bg-[#0d2a21]; }
+  .chip-warn { @apply text-amber border-[#7a5510] bg-[#2b2108]; }
+  .chip-bad { @apply text-bad border-[#7d2d2d] bg-[#2e1415]; }
+  .chip-info { @apply text-sky border-[#2b4a82] bg-[#101e3a]; }
+  .field { @apply bg-[#0c1429] text-ink border border-line rounded-lg px-2.5 py-2 w-full; font: inherit; }
+  .lbl { @apply block text-[13px] text-muted mt-2 mb-1; }
+  .note { @apply text-[12.5px] text-muted; }
+  .alert { @apply rounded-2xl px-4 py-3.5 border border-[#7d2d2d] bg-[#2a1315] flex gap-3 items-start; }
+  .alert-w { @apply border-[#7a5510] bg-[#2a2008]; }
+  .alert-g { @apply border-[#1f6b4d] bg-[#0d2a21]; }
+  .details { @apply bg-panel border border-line rounded-xl px-3.5 py-2.5; }
+  .details > summary { @apply cursor-pointer text-muted; }
+}
